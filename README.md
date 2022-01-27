@@ -51,11 +51,22 @@ Un pré-requis est d'avoir une connection à un compte ssh sudoable.
 
 1. Installer meteor-up
 
+Il faut déjà installer node8, npm
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt install nodejs
+sudo apt install npm
+
+sudo npm install --global mup
+
 2. S'assurer que vos clés ssh sont bien positionnées et que vous accédez bien à la machine en ssh
 
 ssh ubuntu@46.226.107.168
 
-(dans le cas où votre clé nécessite une passphrase, en recréer une sans passphrase, et ajouter la clé publique sur le serveur dans le fichier /home/ubuntu/.ssh/authorized_keys)
+Précisions: 
+- Pour des raisons que j'ignore il faut une clé rsa (pas ed25519). 
+- Dans le cas où votre clé nécessite une passphrase, en recréer une sans passphrase
+- Ajouter la clé publique sur le serveur dans le fichier /home/ubuntu/.ssh/authorized_keys)
 
 3. Effectuer des modifs de code et tester localement
 
@@ -64,6 +75,7 @@ meteor
 4. Déployer sur le serveur
 
 - Ajuster le fichier ./.deploy/mup.js avec vos critères d'authentification (fichier identifiant .ssh pem)
+    
 - Déployer 
 
 mup deploy
