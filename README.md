@@ -1,4 +1,4 @@
-Klub
+Klub Meteor
 ====
 
 ## La vie de klub
